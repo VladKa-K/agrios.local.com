@@ -1,0 +1,181 @@
+.c-hero-banner {
+    @apply bg-[#f8f7f2] py-[80px] min-h-[400px] relative;
+    @apply tablet:min-h-[500px];
+    @apply laptop:py-[100px] laptop:min-h-[800px] laptop:h-[1px];
+
+    .container {
+        @apply h-full;
+    }
+}
+
+.c-hero-banner__row {
+    @apply h-full flex flex-col-reverse justify-end;
+    @apply tablet:flex-row tablet:items-center tablet:justify-between tablet:gap-x-[16px];
+}
+
+.c-hero-banner__col-content {
+    @apply tablet:w-1/2;
+}
+
+.c-hero-banner__title {
+    @apply font-bold text-[32px] leading-[0.9];
+    @apply tablet:text-[44px];
+    @apply laptop:text-[60px];
+    @apply desktop:text-[80px];
+    @apply l-desktop:text-[100px];
+
+    > br {
+        @apply hidden;
+        @apply tablet:block;
+    }
+}
+
+.c-hero-banner__col-animation {
+    @apply tablet:w-1/2;
+}
+
+.c-hero-banner__slider {
+    @apply h-[68vw];
+    @apply tablet:h-auto;
+}
+
+.c-hero-banner__slide {
+    
+    img {
+        @apply w-full h-full object-cover;
+    }
+}
+
+.c-hero-banner__slide-img {
+    @apply h-full;
+}
+
+.c-hero-banner__col-animation-box {
+    @apply relative overflow-hidden;
+    @apply laptop:absolute laptop:top-1/2 laptop:transform laptop:-translate-y-1/2 laptop:right-0 laptop:w-[50vw] laptop:h-full;
+}
+
+.c-hero-banner__col-animation-masks {
+    @apply hidden;
+    @apply laptop:block laptop:absolute laptop:top-0 laptop:right-0 laptop:w-full laptop:h-full laptop:z-[1];
+}
+
+.c-hero-banner__col-animation-mask {
+    @apply absolute left-1/2 transform -translate-x-1/2 w-screen h-[calc(50%+2px)] bg-[#f8f7f2];
+}
+
+.c-hero-banner__col-animation-mask--top {
+    @apply top-0;
+    clip-path: polygon(0% 0%, 0% 100%, 23% 100%, 23% 3%, 100% 3%, 100% 97%, 22% 97%, 25% 100%, 100% 100%, 100% 0%);
+    animation-name: animationMaskTop;
+    animation-duration: 20s;
+    animation-delay: 2.7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier( 1, 0.1, 0.15, 1 );
+    
+    @media (min-width: 1024px) {
+        clip-path: polygon(0% 0%, 0% 100%, 40% 100%, 40% 3%, 66% 3%, 66% 99%, 22% 99%, 25% 100%, 100% 100%, 100% 0%);
+    }
+}
+
+.c-hero-banner__col-animation-mask--bottom {
+    @apply bottom-0;
+    clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 3%, 90% 3%, 90% 96%, 0% 97%, 3% 100%, 101% 100%, 100% 0%);
+    animation-name: animationMaskBottom;
+    animation-duration: 20s;
+    animation-delay: 1.9s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier( 1, 0.1, 0.15, 1 );
+
+    @media (min-width: 1024px) {
+        clip-path: polygon(0% 0%, 0% 100%, 38% 100%, 38% 1%, 72% 1%, 72% 96%, 0% 97%, 12% 100%, 101% 100%, 100% 0%);
+    }
+}
+
+@media(min-width: 1024px) {
+    @keyframes animationMaskTop {
+    
+        0% {
+            transform: translateX(-50%);
+            clip-path: polygon(0% 0%, 0% 100%, 40% 100%, 40% 3%, 66% 3%, 66% 99%, 22% 99%, 25% 100%, 100% 100%, 100% 0%);
+        }
+        20% {
+            transform: translateX(calc(-50% - 10%));
+        }
+        60% {
+            transform: translateX(-50%);
+        }
+        80% {
+            transform: translateX(calc(-50% + 10%));
+            clip-path: polygon(0% 0%, 0% 100%, 38% 100%, 38% 1%, 72% 1%, 72% 99%, 0% 99%, 12% 100%, 101% 100%, 100% 0%);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes animationMaskBottom {
+        0% {
+            transform: translateX(-50%);
+            clip-path: polygon(0% 0%, 0% 100%, 38% 100%, 38% 1%, 72% 1%, 72% 96%, 0% 97%, 12% 100%, 101% 100%, 100% 0%);
+        }
+        20% {
+            transform: translateX(calc(-50% + 12%));
+            
+        }
+        60% {
+            transform: translateX(-50%);
+        }
+        80% {
+            transform: translateX(calc(-50% - 12%));
+            clip-path: polygon(0% 0%, 0% 100%, 40% 100%, 40% 1%, 66% 1%, 66% 99%, 22% 99%, 25% 100%, 100% 100%, 100% 0%);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+}
+
+@media(min-width: 1680px) {
+    @keyframes animationMaskTop {
+    
+        0% {
+            transform: translateX(-50%);
+            clip-path: polygon(0% 0%, 0% 100%, 40% 100%, 40% 3%, 66% 3%, 66% 99%, 22% 99%, 25% 100%, 100% 100%, 100% 0%);
+        }
+        20% {
+            transform: translateX(calc(-50% - 14%));
+        }
+        60% {
+            transform: translateX(-50%);
+        }
+        80% {
+            transform: translateX(calc(-50% + 12%));
+            clip-path: polygon(0% 0%, 0% 100%, 38% 100%, 38% 1%, 72% 1%, 72% 99%, 0% 99%, 12% 100%, 101% 100%, 100% 0%);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes animationMaskBottom {
+        0% {
+            transform: translateX(-50%);
+            clip-path: polygon(0% 0%, 0% 100%, 38% 100%, 38% 1%, 72% 1%, 72% 99%, 0% 99%, 12% 100%, 101% 100%, 100% 0%);
+        }
+        20% {
+            transform: translateX(calc(-50% + 12%));
+            
+        }
+        60% {
+            transform: translateX(-50%);
+        }
+        80% {
+            transform: translateX(calc(-50% - 12%));
+            clip-path: polygon(0% 0%, 0% 100%, 40% 100%, 40% 1%, 66% 1%, 66% 99%, 22% 99%, 25% 100%, 100% 100%, 100% 0%);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+}
